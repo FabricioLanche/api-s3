@@ -5,8 +5,9 @@ def lambda_handler(event, context):
     nombre_bucket = event['body']['bucket']
     
     # Proceso
-    s3 = boto3.client('s3')
+    s3 = boto3.client('s3', region_name='us-east-1')
     try:
+        # Crear bucket en us-east-1 (no requiere LocationConstraint)
         response = s3.create_bucket(Bucket=nombre_bucket)
         
         # Salida

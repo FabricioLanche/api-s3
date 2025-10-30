@@ -7,8 +7,14 @@ provider:
   # Default memory size for functions (default: 256MB)
   memorySize: 256
   timeout: 20
+  region: us-east-1
   iam:
     role: arn:aws:iam::392236440166:role/LabRole
+  apiGateway:
+    binaryMediaTypes:
+      - 'multipart/form-data'
+      - 'image/*'
+      - 'application/octet-stream'
 
 functions:
   lista_buckets:
